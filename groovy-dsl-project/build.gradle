@@ -1,3 +1,4 @@
+// List dependencies cache as a custom value
 buildScan.value "Dependencies Before", listDependenciesCache()
 
 buildScan {
