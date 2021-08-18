@@ -1,0 +1,16 @@
+buildScan.value "Dependencies Before", listDependenciesCache()
+
+buildScan {
+    buildFinished {
+        buildScan.value "Dependencies After", listDependenciesCache()
+    }
+}
+
+private String listDependenciesCache() {
+    def list = []
+    File dir = new File(gradle.gradleUserHomeDir, "caches/modules-2")
+    dir.eachFileRecurse(groovy.io.FileType.FILES) { file ->
+        list << file
+    }
+    return list.collect { it.path }.join('\n')
+}
