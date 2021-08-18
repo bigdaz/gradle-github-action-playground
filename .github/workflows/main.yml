@@ -25,9 +25,15 @@ jobs:
         restore-keys: |
            ${{ runner.os }}-gradle-
     - name: List dependencies cache before
-      run: ls -Rlu --full-time ~/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-text
+      run: |
+        ls -Rlu --full-time ~/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-text
+        ls -Rl --full-time ~/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-text
+        tree -D ~/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-text
     - name: Build with Gradle
       working-directory: groovy-dsl-project
       run: ./gradlew --no-daemon build
     - name: List dependencies cache after
-      run: ls -Rlu --full-time ~/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-text
+      run: |
+        ls -Rlu --full-time ~/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-text
+        ls -Rl --full-time ~/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-text
+        tree -D ~/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-text
