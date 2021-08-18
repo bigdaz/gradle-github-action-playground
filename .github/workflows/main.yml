@@ -24,6 +24,10 @@ jobs:
         key: ${{ runner.os }}-gradle-${{ hashFiles('**/?*.gradle*', '**/gradle-wrapper.properties') }}
         restore-keys: |
            ${{ runner.os }}-gradle-
+    - name: List dependencies cache before
+      run: tree -D ~/.gradle/caches/modules-2
     - name: Build with Gradle
       working-directory: groovy-dsl-project
       run: ./gradlew build
+    - name: List dependencies cache after
+      run: tree -D ~/.gradle/caches/modules-2
