@@ -25,9 +25,9 @@ jobs:
         restore-keys: |
            ${{ runner.os }}-gradle-
     - name: List dependencies cache before
-      run: ls -Rlu ~/.gradle/caches/modules-2
+      run: ls -Rlu --full-time ~/.gradle/caches/modules-2
     - name: Build with Gradle
       working-directory: groovy-dsl-project
       run: ./gradlew build
     - name: List dependencies cache after
-      run: ls -Rlu ~/.gradle/caches/modules-2
+      run: ls -Rlu --full-time ~/.gradle/caches/modules-2
