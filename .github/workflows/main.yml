@@ -20,7 +20,7 @@ jobs:
       with:
         path: |
           ~/.gradle/caches/*
-          !~/.gradle/caches/transforms-3
+          !~/.gradle/caches/build-cache-1
           ~/.gradle/wrapper
         key: ${{ runner.os }}-gradle-${{ hashFiles('**/?*.gradle*', '**/gradle-wrapper.properties') }}
         restore-keys: |
