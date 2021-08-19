@@ -23,6 +23,7 @@ jobs:
           ~/.gradle/caches/*
           !~/.gradle/caches/build-cache-1
           ~/.gradle/wrapper/dists/*/*/*.zip
+          ~/.gradle/notifications
         key: ${{ runner.os }}-gradle-${{ github.sha }}
         restore-keys: |
           ${{ runner.os }}-gradle-
