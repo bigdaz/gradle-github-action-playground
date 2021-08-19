@@ -1,4 +1,4 @@
-# Change again and again
+# Change again
 name: Java CI with Gradle
 
 on: [push]
