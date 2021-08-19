@@ -23,9 +23,9 @@ jobs:
           ~/.gradle/caches/*
           !~/.gradle/caches/build-cache-1
           ~/.gradle/wrapper
-        key: ${{ runner.os }}-gradle-${{ hashFiles('**/?*.gradle*', '**/gradle-wrapper.properties') }}
+        key: ${{ runner.os }}-gradle-${{ github.sha }}
         restore-keys: |
-           ${{ runner.os }}-gradle-
+          ${{ runner.os }}-gradle-
     - name: Build with Gradle
       working-directory: groovy-dsl-project
       run: ./gradlew --no-daemon build
