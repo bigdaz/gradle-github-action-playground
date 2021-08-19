@@ -22,7 +22,7 @@ jobs:
         path: |
           ~/.gradle/caches/*
           !~/.gradle/caches/build-cache-1
-          ~/.gradle/wrapper
+          ~/.gradle/wrapper/*/*/*.zip
         key: ${{ runner.os }}-gradle-${{ github.sha }}
         restore-keys: |
           ${{ runner.os }}-gradle-
