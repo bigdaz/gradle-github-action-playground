@@ -16,7 +16,7 @@ jobs:
         distribution: 'adopt'
     - name: Validate Gradle wrapper
       uses: gradle/wrapper-validation-action@v1
-    - name: Cache Gradle packages
+    - name: Cache Gradle caches
       uses: actions/cache@v2
       with:
         path: |
@@ -26,6 +26,14 @@ jobs:
         key: ${{ runner.os }}-gradle-${{ github.sha }}
         restore-keys: |
           ${{ runner.os }}-gradle-
+    - name: Cache Gradle build cache
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/.gradle/caches/build-cache-1
+        key: ${{ runner.os }}-gradle-build-cache-${{ github.sha }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-build-cache
     - name: Build with Gradle
       working-directory: groovy-dsl-project
       run: ./gradlew --no-daemon build
